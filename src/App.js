@@ -19,33 +19,26 @@ class App extends Component {
   }
 
   shuffle = () => {
-    /* https://css-tricks.com/snippets/javascript/shuffle-array/ */
+    // https://css-tricks.com/snippets/javascript/shuffle-array/
     this.setState({ characters: characters.sort(function () { return 0.5 - Math.random() }) });
   }
 
-  handleIncrement = id => {
+  handleEvent = id => {
     this.updateArray(id)
-    this.setState({ score: this.state.score + 1 });
-    this.assessScore();
     this.shuffle();
   };
 
   updateArray = id => {
     let newArray = this.state.selectedImages.slice();
-    newArray.push(id);
-    this.setState({ selectedImages: newArray })
-  }
-
-  assessScore = () => {
-    for (let i = 0; i <= this.state.selectedImages.length; i++) {
-      for (let j = i; j <= this.state.selectedImages.length; j++) {
-        if (i !== j && this.state.selectedImages[i] === this.state.selectedImages[j]) {
-          this.resetScore();
-        }
-      }
+    if (this.state.selectedImages.includes(id) === false) {
+      newArray.push(id)
+      this.setState({ selectedImages: newArray })
+      this.setState({ score: this.state.score + 1 });
+    } else {
+      this.resetScore();
     }
   }
-
+  
   resetScore = () => {
     this.setState({ topScore: this.state.score, score: 0, selectedImages: [] });
   }
@@ -69,7 +62,7 @@ class App extends Component {
             <Columns>
               {this.state.characters.map(character => (
                 <ImgContainer
-                  function={() => this.handleIncrement(character.id)}
+                  function={() => this.handleEvent(character.id)}
                   key={character.id}
                   width="175px"
                   alt={character.name}
