@@ -2,61 +2,61 @@
   {
     "id": 1,
     "name": "Michael",
-    "image": "/images/michael.jpg"
+    "image": "./images/michael.jpg"
   },
   {
     "id": 2,
     "name": "Andy",
-    "image": "/images/andy.jpg"
+    "image": "./images/andy.jpg"
   },
   {
     "id": 3,
     "name": "Angela",
-    "image": "/images/angela.jpg"
+    "image": "./images/angela.jpg"
   },
   {
     "id": 4,
     "name": "Dwight",
-    "image": "/images/dwight.jpg"
+    "image": "./images/dwight.jpg"
   },
   {
     "id": 5,
     "name": "Creed",
-    "image": "/images/creed.jpg"
+    "image": "./images/creed.jpg"
   },
   {
     "id": 6,
     "name": "Stanley",
-    "image": "/images/stanley.jpg"
+    "image": "./images/stanley.jpg"
   },
   {
     "id": 7,
     "name": "Ryan",
-    "image": "/images/ryan.jpg"
+    "image": "./images/ryan.jpg"
   },
   {
     "id": 8,
     "name": "Toby",
-    "image": "/images/toby.jpg"
+    "image": "./images/toby.jpg"
   },
   {
     "id": 9,
     "name": "Pam",
-    "image": "/images/pam.jpg"
+    "image": "./images/pam.jpg"
   },
   {
     "id": 10,
     "name": "Jim",
-    "image": "/images/jim.jpg"
+    "image": "./images/jim.jpg"
   },
   {
     "id": 11,
     "name": "Erin",
-    "image": "/images/erin.jpg"
+    "image": "./images/erin.jpg"
   },
   {
     "id": 12,
     "name": "Kevin",
-    "image": "/images/kevin.jpg"
+    "image": "./images/kevin.jpg"
   }
 ]
