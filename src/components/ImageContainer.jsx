@@ -7,7 +7,7 @@ import { Card } from 'react-bulma-components';
 class ImgContainer extends Component {
   render() {
     return (
-      <Columns.Column size={2}>
+      <Columns.Column size={3}>
         <Card onClick={this.props.function} style={{ width: this.props.width}}>
           <Card.Image className="zoom" src={this.props.image}></Card.Image>
         </Card>

@@ -15,7 +15,8 @@ class App extends Component {
     selectedImages: [],
     characters,
     score: 0,
-    topScore: 0
+    topScore: 0,
+    winner: ''
   }
 
   shuffle = () => {
@@ -34,13 +35,21 @@ class App extends Component {
       newArray.push(id)
       this.setState({ selectedImages: newArray })
       this.setState({ score: this.state.score + 1 });
+      this.setState({ winner: 'You Guessed Correctly!'})
     } else {
+      this.setState({ winner: 'You Guessed Incorrectly!'})
       this.resetScore();
     }
   }
-  
+
+  checkForWin () {
+    if (this.state.score === 12) {
+      this.setState({state: this.state.winner === 'You\'re a winner!'})
+    }
+  }
+
   resetScore = () => {
-    this.setState({ topScore: this.state.score, score: 0, selectedImages: [] });
+    this.setState({ topScore: this.state.score, score: 0, selectedImages: []});
   }
 
   render() {
@@ -51,14 +60,15 @@ class App extends Component {
             <Container>
               <Heading id="title">The Office Clicky Game</Heading>
               <Columns>
-                <Columns.Column size={6}>Click an image to begin!</Columns.Column>
-                <Columns.Column size={6}>Score: {this.state.score} | Top Score: {this.state.topScore}</Columns.Column>
+                <Columns.Column size={4}>Click an image to begin!</Columns.Column>
+                <Columns.Column size={4}>{this.state.winner}</Columns.Column>
+                <Columns.Column size={4}>Score: {this.state.score} | Top Score: {this.state.topScore}</Columns.Column>
               </Columns>
             </Container>
           </Hero.Body>
         </Hero>
         <Section>
-          <Container>
+          <Container id="main">
             <Columns>
               {this.state.characters.map(character => (
                 <ImgContainer
