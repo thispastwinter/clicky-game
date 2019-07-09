@@ -18,15 +18,10 @@ class App extends Component {
     topScore: 0
   }
 
-  /* https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array */
-
   shuffle = () => {
-    for (let i = this.state.characters.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [this.state.characters[i], this.state.characters[j]] = [this.state.characters[j], this.state.characters[i]];
-    }
-    this.setState({characters: this.state.characters});
-}
+    /* https://css-tricks.com/snippets/javascript/shuffle-array/ */
+    this.setState({ characters: characters.sort(function () { return 0.5 - Math.random() }) });
+  }
 
   handleIncrement = id => {
     this.updateArray(id)
@@ -42,8 +37,8 @@ class App extends Component {
   }
 
   assessScore = () => {
-    for (let i = 0; i < this.state.selectedImages.length; i++) {
-      for (let j = i; j < this.state.selectedImages.length; j++) {
+    for (let i = 0; i <= this.state.selectedImages.length; i++) {
+      for (let j = i; j <= this.state.selectedImages.length; j++) {
         if (i !== j && this.state.selectedImages[i] === this.state.selectedImages[j]) {
           this.resetScore();
         }
